@@ -1,28 +1,65 @@
 ﻿#include "ShopkepperEyebrow.hpp"
-#include "../CCMenuItemLabelExt.hpp"
 
 //custom button that similar to CCMenuItemSpriteExtra
+#include "../CCMenuItemLabelExt.hpp"
+
+class MyNotStruct : public ShopkepperEyebrow {
+public:
+    void asd(float) {
+
+        //we love that
+        auto winSize = CCDirector::sharedDirector()->getWinSize();
+
+        //a bg
+        auto baga = TheObjOrSomeObj(CCSprite*, this->getChildByTag(8592));
+        baga->setScaleX(winSize.width / baga->getContentSize().width);
+        baga->setScaleY(winSize.height / baga->getContentSize().height);
+        baga->setPosition(winSize / 2);
+
+        //THE ShopkepperEyebrow
+        auto ShopkepperEyebrow = TheObjOrSomeObj(CCSprite*, this->getChildByTag(7543));
+        ShopkepperEyebrow->setScale((winSize.width / 2.8) / ShopkepperEyebrow->getContentSize().width);
+        ShopkepperEyebrow->setPositionX(winSize.width);
+        ShopkepperEyebrow->setAnchorPoint({ 1.2f, 0.f });
+
+        //ShopkeppersMsg
+        auto ShopkeppersMsg = TheObjOrSomeObj(CCSprite*, this->getChildByTag(1032));
+        ShopkeppersMsg->setScale((winSize.width / 2) / ShopkeppersMsg->getContentSize().width);
+        ShopkeppersMsg->setPositionY(winSize.height / 2.25);
+        ShopkeppersMsg->setAnchorPoint({ -0.1f, 0.5f });
+
+        //ShopkeppersMsg
+        auto ShopkeppersMsgTitle = TheObjOrSomeObj(CCSprite*, this->getChildByTag(621));
+        ShopkeppersMsgTitle->setScale((winSize.width / 2) / ShopkeppersMsgTitle->getContentSize().width);
+        ShopkeppersMsgTitle->setPositionY(winSize.height / 1.35);
+        ShopkeppersMsgTitle->setAnchorPoint({ -0.1f, 0.5f });
+
+        auto menuThatExistOnlyForBackBtn = TheObjOrSomeObj(CCMenu*, this->getChildByTag(6254));
+        menuThatExistOnlyForBackBtn->setPosition({ 24.000f, winSize.height - 24 });
+
+    }
+};
 
 bool ShopkepperEyebrow::init() {
     //allow keypad for layer
     this->setKeypadEnabled(true);
     //allow touching for layer
     this->setTouchEnabled(true);
-    
-    //we love that
-    auto winSize = CCDirector::sharedDirector()->getWinSize();
 
-    //a bg
+    //add stuff
+
     CCSprite* baga = ModUtils::createSprite("square.png");
     this->addChild(baga, -5, 8592);
-    baga->setScaleX(winSize.width / baga->getContentSize().width);
-    baga->setScaleY(winSize.height / baga->getContentSize().height);
-    baga->setPosition(winSize / 2);
-    baga->setColor({255,255,255});
+    baga->setColor({ 255,255,255 });
 
-    CCMenu* Menu = CCMenu::create();
-    Menu->setPosition(CCPoint());
-    this->addChild(Menu, 100, 5940);//do u know that exists addChild(node, index) and addChild(node, index, tag)???
+    CCSprite* ShopkepperEyebrow = ModUtils::createSprite("ShopkepperEyebrow.png", 4.f);
+    this->addChild(ShopkepperEyebrow, 0, 7543);
+
+    CCSprite* ShopkeppersMsgTitle = ModUtils::createSprite("ShopkeppersMsgTitle.png", 4.f);
+    this->addChild(ShopkeppersMsgTitle, 0, 621);
+
+    CCSprite* ShopkeppersMsg = ModUtils::createSprite("ShopkeppersMsg.png", 4.f);
+    this->addChild(ShopkeppersMsg, 0, 1032);
 
     auto GJ_arrow_03_001 = CCMenuItemLabelExt::create(
         ModUtils::createSprite("GJ_arrow_03_001.png"),
@@ -31,9 +68,10 @@ bool ShopkepperEyebrow::init() {
     );
 
     auto menuThatExistOnlyForBackBtn = CCMenu::createWithItem(GJ_arrow_03_001);
-    this->addChild(menuThatExistOnlyForBackBtn);
-    menuThatExistOnlyForBackBtn->setPosition({ 25.000f, winSize.height - 25 });
+    this->addChild(menuThatExistOnlyForBackBtn, 0, 6254);
 
+    //update stuff
+    this->schedule(schedule_selector(MyNotStruct::asd), 0.1f);
 
     return true;
 }

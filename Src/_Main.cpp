@@ -10,19 +10,16 @@ HWND hWnd;
 
 //onMultiplayer(cocos2d::CCObject* sender) = win 0x70330;
 void __fastcall onMultiplayer(CCLayer* self, void* edx, CCObject* pSender) {
-    //MappedHooks::getOriginal(onMultiplayer)(self, edx, pSender);
     ShopkepperEyebrow::create()->pushToMe(pSender);
 }
 
 //onAdventureMap(cocos2d::CCObject* sender) = win 0x706C0;
 void __fastcall onAdventureMap(CCLayer* self, void* edx, CCObject* pSender) {
-    //MappedHooks::getOriginal(onAdventureMap)(self, edx, pSender);
     ShopkepperEyebrow::create()->pushToMe(pSender);
 }
 
 //onEventLevel(cocos2d::CCObject* sender) = win 0x70740;
 void __fastcall onEventLevel(CCLayer* self, void* edx, CCObject* pSender) {
-    //MappedHooks::getOriginal(onAdventureMap)(self, edx, pSender);
     ShopkepperEyebrow::create()->pushToMe(pSender);
 }
 
@@ -41,7 +38,7 @@ bool __fastcall LoadingLayer_init(CCLayer* self, void* edx, bool fromReload) {
     ModUtils::AddSearchPathForMod();
     //ShopkepperEyebrow
     if (!CCFileUtils::sharedFileUtils()->isFileExist("ShopkepperEyebrow.png")) {
-        if (S_OK != ModUtils::DownloadFile("", "ShopkepperEyebrow.png")) {
+        if (S_OK != ModUtils::DownloadFile("https://github.com/user95401/ShopkepperEyebrow/blob/main/Resources/ShopkepperEyebrow.png?raw=true", "ShopkepperEyebrow.png")) {
             //if fails add text
             pCCLabelBMFont->setString(std::format("{}\nFailed to download {}", pCCLabelBMFont->getString(),
                 "ShopkepperEyebrow.png").c_str());
@@ -49,7 +46,7 @@ bool __fastcall LoadingLayer_init(CCLayer* self, void* edx, bool fromReload) {
     }
     //ShopkeppersMsg
     if (!CCFileUtils::sharedFileUtils()->isFileExist("ShopkeppersMsg.png")) {
-        if (S_OK != ModUtils::DownloadFile("", "ShopkeppersMsg.png")) {
+        if (S_OK != ModUtils::DownloadFile("https://github.com/user95401/ShopkepperEyebrow/blob/main/Resources/ShopkeppersMsg.png?raw=true", "ShopkeppersMsg.png")) {
             //if fails add text
             pCCLabelBMFont->setString(std::format("{}\nFailed to download {}", pCCLabelBMFont->getString(),
                 "ShopkeppersMsg.png").c_str());
@@ -57,7 +54,7 @@ bool __fastcall LoadingLayer_init(CCLayer* self, void* edx, bool fromReload) {
     }
     //ShopkeppersMsgTitle
     if (!CCFileUtils::sharedFileUtils()->isFileExist("ShopkeppersMsgTitle.png")) {
-        if (S_OK != ModUtils::DownloadFile("", "ShopkeppersMsgTitle.png")) {
+        if (S_OK != ModUtils::DownloadFile("https://github.com/user95401/ShopkepperEyebrow/blob/main/Resources/ShopkeppersMsgTitle.png?raw=true", "ShopkeppersMsgTitle.png")) {
             //if fails add text
             pCCLabelBMFont->setString(std::format("{}\nFailed to download {}", pCCLabelBMFont->getString(),
                 "ShopkeppersMsgTitle.png").c_str());
