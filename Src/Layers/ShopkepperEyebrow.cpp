@@ -46,6 +46,9 @@ bool ShopkepperEyebrow::init() {
     //allow touching for layer
     this->setTouchEnabled(true);
 
+    //music
+    GameManager::sharedState()->fadeInMusic("Deckers_Star_-_Inside_job_type_beat.mp3");
+
     //add stuff
 
     CCSprite* baga = ModUtils::createSprite("square.png");

@@ -9,14 +9,14 @@ cmake_policy(SET CMP0057 NEW)
 project ("ShopkepperEyebrow")
 set(developer "user95401")
 set(description "mod made for gd 2.2!!! asd")
-set(lib_output "D:/Games/user666/2.2 PC GDPS but actually that is lol/fif issue/") # post build copy
+set(lib_output "D:\\Games\\user666\\Gemetry_Trash_Private_Servero_v1.7\\fif issue") # post build copy
 
 #curly-eureka
-set(GAME_VERSION "2.200")
+set(GAME_VERSION "2.2")
 include("C:\\Users\\Lenovo\\source\\curly-eureka\\CURLY-EUREKA-INCL.cmake")# "\" must be escaped by \\
 
 #version
-set(FILEVERSION "1, 0, 0, 0")
+set(FILEVERSION "2, 0, 0, 0")
 set(LegalCopyright "user666's original")
 configure_file("Version.rc" "../../../src/Version.rc")
 
