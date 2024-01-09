@@ -80,6 +80,8 @@ bool ShopkepperEyebrow::init() {
 }
 
 void ShopkepperEyebrow::onBack(CCObject* object) {
+    GameManager::sharedState()->fadeInMusic("nbjnjlanflb.sdf");//kill playin music
+    GameManager::sharedState()->fadeInMusic();//menuloop
     CCDirector::sharedDirector()->popSceneWithTransition(0.5f, PopTransition::kPopTransitionFade);
 }
 

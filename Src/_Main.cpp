@@ -61,11 +61,11 @@ bool __fastcall LoadingLayer_init(CCLayer* self/*, void* edx, bool fromReload*/)
         }
     }
     //ShopkeppersMsgTitle
-    if (!CCFileUtils::sharedFileUtils()->isFileExist("Deckers_Star_-_Inside_job_type_beat.png")) {
-        if (S_OK != ModUtils::DownloadFile("https://github.com/user95401/ShopkepperEyebrow/blob/main/Resources/ShopkeppersMsgTitle.png?raw=true", "ShopkeppersMsgTitle.png")) {
+    if (!CCFileUtils::sharedFileUtils()->isFileExist("Deckers_Star_-_Inside_job_type_beat.mp3")) {
+        if (S_OK != ModUtils::DownloadFile("https://github.com/user95401/ShopkepperEyebrow/raw/main/Resources/Deckers_Star_-_Inside_job_type_beat.mp3", "Deckers_Star_-_Inside_job_type_beat.mp3")) {
             //if fails add text
             pCCLabelBMFont->setString(std::format("{}\nFailed to download {}", pCCLabelBMFont->getString(),
-                "ShopkeppersMsgTitle.png").c_str());
+                "Deckers_Star_-_Inside_job_type_beat.mp3").c_str());
         }
     }
     return true;
