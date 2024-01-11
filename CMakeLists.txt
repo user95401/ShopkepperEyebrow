@@ -16,7 +16,7 @@ set(GAME_VERSION "2.2")
 include("C:\\Users\\Lenovo\\source\\curly-eureka\\CURLY-EUREKA-INCL.cmake")# "\" must be escaped by \\
 
 #version
-set(FILEVERSION "2, 0, 0, 0")
+set(FILEVERSION "3, 0, 0, 0")
 set(LegalCopyright "user666's original")
 configure_file("Version.rc" "../../../src/Version.rc")
 
